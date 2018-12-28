@@ -1,0 +1,16 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "touch hello.js",
+    "start": "node hello.js",
+    "hello": "echo hello",
+    "build": "mkdir build",
+    "delete": "rm -rf build"
+  },
+  "author": "",
+  "license": "ISC"
+}
