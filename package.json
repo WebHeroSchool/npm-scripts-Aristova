@@ -9,7 +9,9 @@
     "start": "node hello.js",
     "hello": "echo hello",
     "build": "mkdir build",
-    "delete": "rm -rf build"
+    "creatte":"touch file.css",
+    "start":"node file.css",
+    "new": "mkdir new" 
   },
   "author": "",
   "license": "ISC",
