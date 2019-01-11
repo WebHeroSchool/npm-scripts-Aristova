@@ -1,1 +1,3 @@
-console.log("hello");
+const phrase = 'hello';
+
+console.log(phrase);

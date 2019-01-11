@@ -6,16 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "touch hello.js",
-    "start": "node hello.js",
+    "start": "node file.css",
     "hello": "echo hello",
     "build": "mkdir build",
-    "creatte":"touch file.css",
-    "start":"node file.css",
-    "new": "mkdir new" 
+    "creatte": "touch file.css",
+    "new": "mkdir new"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0"
   }
 }
