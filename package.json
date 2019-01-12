@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "create": "touch hello.js",
-    "start": "node file.css",
+    "creatte": "touch index.js",
+    "new": "mkdir new",
     "hello": "echo hello",
-    "build": "mkdir build",
-    "creatte": "touch file.css",
-    "new": "mkdir new"
+    "build":"mkdir build",
+    "create":"touch file.css",
+    "start":"node file.css"
+    
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "gulp": "^3.9.1",
-    "gulp-babel": "^8.0.0"
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1"
   }
 }
