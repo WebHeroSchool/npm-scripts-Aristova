@@ -1,5 +1,3 @@
 "use strict";
-var user = {
-    name: Masha,
-    age: 18
-};
+var a = 7;
+console.log('a=', a);

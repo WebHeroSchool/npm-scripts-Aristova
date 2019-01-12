@@ -1,1 +1,1 @@
-"use strict";var user={name:Masha,age:18},sayHi="hello";console.log(sayHi);
+"use strict"; var user = { name: Masha, age: 18 }, console.log ('sayHi');

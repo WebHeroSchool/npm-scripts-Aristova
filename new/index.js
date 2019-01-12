@@ -1,1 +1,2 @@
-"use strict";var user={name:Masha,age:18},sayHi="hello";console.log(sayHi);
+"use strict";var a=7;console.log("a=",a),console.log("sayHi");
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhlbGxvLmpzIl0sIm5hbWVzIjpbImEiLCJjb25zb2xlIiwibG9nIl0sIm1hcHBpbmdzIjoiQUFBQSxhQUNBLElBQUFBLEVBQUEsRUFDQUMsUUFBQUMsSUFBQSxLQUFBRixHQUFBQyxRQUFBQSxJQUFBQSIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xudmFyIGEgPSA3O1xuY29uc29sZS5sb2coJ2E9JywgYSk7Il19

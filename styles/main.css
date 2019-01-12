@@ -1,3 +1,15 @@
+.subtitle,
+.title {
+  color: red;
+  font-size: 25px;
+}
+
+.wrapper {
+  font-size: 15px;
+  background: green;
+
+}
+
 body {
   box-sizing: border-box;
 }
