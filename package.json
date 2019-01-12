@@ -8,10 +8,9 @@
     "creatte": "touch index.js",
     "new": "mkdir new",
     "hello": "echo hello",
-    "build":"mkdir build",
-    "create":"touch file.css",
-    "start":"node file.css"
-    
+    "build": "mkdir build",
+    "create": "touch file.css",
+    "start": "node file.css"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +19,7 @@
     "@babel/preset-env": "^7.2.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.1"
   }
 }
