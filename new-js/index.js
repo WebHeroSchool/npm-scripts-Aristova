@@ -1,0 +1,1 @@
+"use strict"; var user = { name: Masha, age: 18 }, console.log ('sayHi');
