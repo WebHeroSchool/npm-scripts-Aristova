@@ -15,3 +15,11 @@ gulp.task('build', () => {
         return gulp.src('new/file.css')
                .pipe(gulp.dest('build'));
 });
+
+gulp.task('build', () => {
+        return gulp.src('new/index.js')
+                .pipe(babel({
+                presets: ['@babel/env']
+        }))
+                .pipe(gulp.dest('build'));
+});
