@@ -33,14 +33,14 @@ gulp.task('new-js', () => {
                         presets: ['@babel/env']
                 }))
                 .pipe(uglify())
-                .pipe(gulp.dest('new-js'))
+                .pipe(gulp.dest('new'))
 });
 
 gulp.task('new-css', () => {
         return gulp.src(['styles/*.css'])
         .pipe(concat('mainstyles.css'))
         .pipe(cssnano())
-        .pipe(gulp.dest('new-css'))
+        .pipe(gulp.dest('new'))
 
 });
 
