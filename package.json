@@ -9,8 +9,9 @@
     "new": "mkdir new",
     "hello": "echo hello",
     "build": "mkdir build",
-    "create": "touch file.css",
-    "start": "node file.css"
+    "styles":"mkdir styles",
+    "create": "touch main.css",
+    "start": "node main.css"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
     "gulp-uglify": "^3.0.1"
   }
 }
