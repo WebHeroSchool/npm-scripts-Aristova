@@ -1,8 +1,11 @@
+const env = require('gulp-env');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const gulpif = require('gulp-if');
 const cssnano = require('gulp-cssnano');
+const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
@@ -21,16 +24,19 @@ const paths = {
         }
 };
 
-
-
+env({
+        file: '.env',
+        type: 'ini',
+});
 
 gulp.task('build', () => {
         return gulp.src('new/hello.js')
                 .pipe(babel({
                         presets: ['@babel/env']
                 }))
-                .pipe(gulp.dest('build'));
-});
+                .pipe(gulp.dest('build'))
+}); ``
+
 gulp.task('build', () => {
         return gulp.src('new/file.css')
                 .pipe(gulp.dest('build'));
@@ -51,27 +57,31 @@ gulp.task('new-js', () => {
                 .pipe(babel({
                         presets: ['@babel/env']
                 }))
-                .pipe(uglify())
+                .pipe(gulpif(process.env.NODE_ENV === 'production', uglify()))
                 .pipe(sourcemaps.write())
                 .pipe(gulp.dest(paths.new.scripts))
+
 });
 
 gulp.task('new-css', () => {
         return gulp.src([paths.src.styles])
                 .pipe(sourcemaps.init())
                 .pipe(concat(paths.buildNames.styles))
-                .pipe(cssnano())
+                .pipe(gulpif(process.env.NODE_ENV === 'production', cssnano()))
                 .pipe(sourcemaps.write())
                 .pipe(gulp.dest(paths.new.styles))
 
 });
+gulp.task('clean', function () {
+        return gulp.src('new', { read: false })
+                .pipe(clean());
+});
+gulp.task('new', ['new-css', 'new-js']);
 
-gulp.task('new', ['new-js', 'new-css']);
-
-// gulp.task('watch', () => {
-//         gulp.watch(paths.src.scripts['new-js']);
-//         gulp.watch(paths.src.styles['new-css']);
-// });
+gulp.task('watch', () => {
+        gulp.watch(paths.src.scripts['new-js']);
+        gulp.watch(paths.src.styles['new-css']);
+});
 
 gulp.task('browser-sync', () => {
         browserSync.init({
@@ -82,8 +92,12 @@ gulp.task('browser-sync', () => {
         gulp.watch(paths.src.scripts, ['new-js-watch']);
         gulp.watch(paths.src.styles, ['new-css-watch']);
 });
+
+
 gulp.task('new-js-watch', ['new-js'], () => browserSync.reload());
 gulp.task('new-css-watch', ['new-css'], () => browserSync.reload());
 
-gulp.task('prod',['new']);
+gulp.task('default', ['new']);
+gulp.task('prod', ['new']);
 gulp.task('dev', ['new', 'browser-sync']);
+
