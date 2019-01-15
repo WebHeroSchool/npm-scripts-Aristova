@@ -66,7 +66,7 @@ gulp.task('new-css', () => {
 
 });
 
-gulp.task('default', ['new-js', 'new-css']);
+gulp.task('new', ['new-js', 'new-css']);
 
 // gulp.task('watch', () => {
 //         gulp.watch(paths.src.scripts['new-js']);
@@ -84,3 +84,6 @@ gulp.task('browser-sync', () => {
 });
 gulp.task('new-js-watch', ['new-js'], () => browserSync.reload());
 gulp.task('new-css-watch', ['new-css'], () => browserSync.reload());
+
+gulp.task('prod',['new']);
+gulp.task('dev', ['new', 'browser-sync']);
