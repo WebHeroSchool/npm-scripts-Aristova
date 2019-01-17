@@ -1,10 +1,12 @@
 const env = require('gulp-env');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const postcss = require('gulp-postcss');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const gulpif = require('gulp-if');
 const cssnano = require('gulp-cssnano');
+const postcss = require('gulp-postcss');
 const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
@@ -64,8 +66,10 @@ gulp.task('new-js', () => {
 });
 
 gulp.task('new-css', () => {
+        const pliguns = []
         return gulp.src([paths.src.styles])
                 .pipe(sourcemaps.init())
+                .pipe(postcss())
                 .pipe(concat(paths.buildNames.styles))
                 .pipe(gulpif(process.env.NODE_ENV === 'production', cssnano()))
                 .pipe(sourcemaps.write())
