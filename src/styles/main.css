@@ -2,14 +2,25 @@
 .title {
   color: red;
   font-size: 25px;
+  margin: * auto;
 }
 
 .wrapper {
   font-size: 15px;
   background: green;
+  display: grid;
+  size: 200px;
+
+  title {
+    font-weight: bold;
+  }
 
 }
 
-body {
+input::placeholder {
+  color: gray;
+}
+
+/* body {
   box-sizing: border-box;
-}
+} */
