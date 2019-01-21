@@ -11,16 +11,19 @@
 
 <body>
 
-    <header class='header'>header</header>
+    {{> header}}
+
     <div class="main"> Something main of page
         <div class="main__content"> Some content of page
         </div>
     </div>
 
-    <aside class="aside">aside</aside>
+    {{> side}}
+
     <p class='paragraph'>One small paragraph</p>
 
-    <footer class='footer'>footer</footer>    <script src="index.min.js"></script>
+    {{> footer}}
+    <script src="index.min.js"></script>
 </body>
 
 </html>

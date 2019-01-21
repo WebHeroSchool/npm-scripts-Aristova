@@ -1,4 +1,5 @@
 const env = require('gulp-env');
+const glob = require('glob');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
@@ -6,6 +7,8 @@ const uglify = require('gulp-uglify');
 const gulpif = require('gulp-if');
 const cssnano = require('gulp-cssnano');
 const postcss = require('gulp-postcss');
+const handlebars = require('gulp-compile-handlebars');
+const rename = require('gulp-rename');
 // const clean = require('gulp-clean');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
@@ -17,22 +20,42 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 const paths = {
         src: {
+                dir: 'src',
                 styles: 'src/styles/*.css',
                 scripts: 'src/build/*.js'
         },
         new: {
+                dir: 'new',
                 styles: 'new',
                 scripts: 'new'
         },
         buildNames: {
                 styles: 'mainstyles.min.css',
                 scripts: 'index.min.js'
-        }
+        },
+        templates: './src/templates/**/*.hbs'
 };
 
 env({
         file: '.env',
         type: 'ini',
+});
+
+gulp.task('compile', () => {
+        glob(paths.templates, (err, files) => {
+                if (!err) {
+                        const options = {
+                                ignorePartials: true,
+                                batch: files.map(item => item.slice(0, item.lastIndexOf('/')))
+
+
+                        };
+                        return gulp.src(`./index.hbs`)
+                                .pipe(handlebars({}, options))
+                                .pipe(rename('index.html'))
+                                .pipe(gulp.dest(paths.new.dir));
+                }
+        });
 });
 
 gulp.task('build', () => {
