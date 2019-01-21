@@ -11,18 +11,22 @@
 
 <body>
 
-    <header class='header'>header</header>
+    {{> header}}
+
     <div class="main"> Something main of page
         <div class="main__content"> Some content of page
         </div>
     </div>
 
-    <aside class="aside">aside</aside>
-    <p class='paragraph'>One small paragraph about user : My name is Vasya Ivanov and I'm 97 . I live in Moscow and I'm happy </p>
-    <span> Vasya-Ivanov</span>
+    {{> side}}
 
-    <p>Math.floor(-43.87) = -44</p>
-    <footer class='footer'>footer</footer>    <script src="index.min.js"></script>
+    <p class='paragraph'>One small paragraph about user : My name is {{ firstName }} and I'm {{
+        age }} . I live in {{adress}} and I'm {{skills}} </p>
+    <span> {{ hyphenate firstName }}</span>
+
+    <p>Math.floor(-43.87) = {{ floor -43.87}}</p>
+    {{> footer}}
+    <script src="index.min.js"></script>
 </body>
 
 </html>
