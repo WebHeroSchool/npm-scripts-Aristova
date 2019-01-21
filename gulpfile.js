@@ -18,6 +18,9 @@ const short = require('postcss-short');
 const assets = require('postcss-assets');
 const postcssPresetEnv = require('postcss-preset-env');
 
+
+const templateContext = require('./src/test.json');
+
 const paths = {
         src: {
                 dir: 'src',
@@ -50,8 +53,8 @@ gulp.task('compile', () => {
 
 
                         };
-                        return gulp.src(`./index.hbs`)
-                                .pipe(handlebars({}, options))
+                        return gulp.src(`./src/index.hbs`)
+                                .pipe(handlebars(templateContext, options))
                                 .pipe(rename('index.html'))
                                 .pipe(gulp.dest(paths.new.dir));
                 }
