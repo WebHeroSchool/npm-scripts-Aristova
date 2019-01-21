@@ -49,7 +49,13 @@ gulp.task('compile', () => {
                 if (!err) {
                         const options = {
                                 ignorePartials: true,
-                                batch: files.map(item => item.slice(0, item.lastIndexOf('/')))
+                                batch: files.map(item => item.slice(0, item.lastIndexOf('/'))),
+                                helpers: {
+                                        hyphenate: str => str.split(' ').join('-'),
+                                        // соединяет два  слова через дефис
+                                        floor: (num) => Math.floor(num)
+                                        // возвращает наибольшее целое число, которое меньше или равно данному числу
+                                }
 
 
                         };
